@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class Rakendus{	
+    @RequestMapping("/")
+	public String tervitus(){
+		return "Tere";
+	}
+
 	@RequestMapping("/geomeetriline_keskmine")
-	String geomkesk(String arv1, String arv2){
+	public String geomkesk(String arv1, String arv2){
 	  try{
 		double a1=Double.parseDouble(arv1);
 		double a2=Double.parseDouble(arv2);
@@ -20,7 +25,7 @@ public class Rakendus{
 	}
  
 	public static void main(String[] args){
-		System.getProperties().put("server.port", 4200);
+		//System.getProperties().put("server.port", 4200);
         SpringApplication.run(Rakendus.class, args);
 	}
 }
